@@ -1,50 +1,53 @@
+'use client';
 
-import { Chart as ReactChart } from 'react-charts';
-import type { AxisOptions } from 'react-charts';
+import React from 'react';
+import CanvasJSReact from '@canvasjs/react-charts';
 
-
-type MyDatum = { date: Date; value: number };
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const MultiLineChart = () => {
-  const data = [
-    {
-      label: 'Users',
-      data: [
-        { date: new Date('2024-01-01'), value: 500 },
-        { date: new Date('2024-02-01'), value: 800 },
-        { date: new Date('2024-03-01'), value: 1200 },
-      ],
+  const options = {
+    animationEnabled: true,
+    title: {
+      text: 'Users & Sales Over Time',
     },
-    {
-      label: 'Sales',
-      data: [
-        { date: new Date('2024-01-01'), value: 300 },
-        { date: new Date('2024-02-01'), value: 900 },
-        { date: new Date('2024-03-01'), value: 1000 },
-      ],
+    axisX: {
+      title: 'Date',
+      valueFormatString: 'MMM YYYY',
     },
-  ];
-
-  const primaryAxis: AxisOptions<MyDatum> = {
-    getValue: datum => datum.date,
-    elementType: 'line',
+    axisY: {
+      title: 'Value',
+    },
+    toolTip: {
+      shared: true,
+    },
+    data: [
+      {
+        type: 'spline',
+        name: 'Users',
+        showInLegend: true,
+        dataPoints: [
+          { x: new Date('2024-01-01'), y: 500 },
+          { x: new Date('2024-02-01'), y: 800 },
+          { x: new Date('2024-03-01'), y: 1200 },
+        ],
+      },
+      {
+        type: 'spline',
+        name: 'Sales',
+        showInLegend: true,
+        dataPoints: [
+          { x: new Date('2024-01-01'), y: 300 },
+          { x: new Date('2024-02-01'), y: 900 },
+          { x: new Date('2024-03-01'), y: 1000 },
+        ],
+      },
+    ],
   };
-
-  const secondaryAxes: AxisOptions<MyDatum>[] = [
-    {
-      getValue: datum => datum.value,
-    },
-  ];
 
   return (
     <div className="w-full h-[400px]">
-      <ReactChart
-        options={{
-          data,
-          primaryAxis,
-          secondaryAxes,
-        }}
-      />
+      <CanvasJSChart options={options} />
     </div>
   );
 };
