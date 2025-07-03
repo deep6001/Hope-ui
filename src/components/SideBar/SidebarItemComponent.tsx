@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { FaArrowRight } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { GoDotFill } from 'react-icons/go';
-import type { RootState } from '@/redux/store';
+import type { RootState } from '@/redux/Store';
 import { setActiveItem } from '@/redux/sidebarSlice';
 
 export type SidebarItem = {
