@@ -126,7 +126,7 @@ const Sidebar = () => {
   return (
     <div
             className={`  overflow-y-auto h-screen space-y-2  md:flex md:flex-col md:static absolute left-0 z-20
-                ${collapsed ? 'md:w-20 w-14 md:border-r-2  max-h-fit md:p-4 max-w-fit md:bg-white ' : 'w-64 border-r-2 p-4 bg-white'}
+                ${collapsed ? 'md:w-20 w-14  max-h-fit md:p-4 max-w-fit md:bg-white ' : 'w-64 p-4 bg-white'}
                 transition-all duration-300 ease-in-out`}
             >
 

@@ -10,7 +10,7 @@ const Header = () => {
 
   const [modelopen , setmodelopen] = useState(false);
   return (
-    <div className="flex border-b-2 justify-between items-center px-3">
+    <div className="flex  justify-between items-center px-3">
 
             <div className="flex items-center gap-2">
 
